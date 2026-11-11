@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #16161e;
+  --color-brand: #5a5cf0;
+  --color-peach: #ffe3d1;
+  --color-mint: #e8f5f7;
+  --color-lilac: #f6f6ff;
+  --color-accent: #ff7a2f;
+  --color-muted: #6b6b78;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1000px;
+  --breakpoint-xl: 1280px;
+  --animate-fade-in: fade-in 0.25s ease-out;
+  --animate-pop: pop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes pop { from { opacity: 0; transform: translateY(16px) scale(0.96) } to { opacity: 1; transform: none } }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(28px) } to { opacity: 1; transform: none } }
+@keyframes float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { font-family: var(--font-sans); color: var(--color-ink); background: #fff; -webkit-font-smoothing: antialiased; }
+
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
+
+.hero-rise { animation: hero-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.float { animation: float 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
